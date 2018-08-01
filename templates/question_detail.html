@@ -1,0 +1,21 @@
+<b>Question</b>: {{ question.question_text }}<br/>
+
+{% if question.choices %}
+    <b>Choices:</b><br/>
+    {% for choice in question.choices.all %}
+        {{ forloop.counter0 }}. {{ choice.choice_text }}<br/>
+    {% endfor %}
+{% else %}
+    <b>No choices yet</b>
+{% endif %}
+
+<br/><br/>
+Add new choice:<br/>
+<form action="/questions/{{ question.pk }}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="text" placeholder="Choice text" /><br/>
+    <input type="submit" value="Add new choice">
+</form>
+
+<br/>
+<a href="/questions">Go back to questions list</a>

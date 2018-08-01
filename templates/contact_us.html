@@ -1,14 +1,17 @@
 <style>
     html, body {
-        font-family: Tahoma;
-        background-color: cornflowerblue;
+        font-family: tahoma;
+        background-color: beige;
     }
-
     .circle {
         width: 30px;
         height: 30px;
-        background-color: deeppink;
+        background-color: #cc2e2e;
         border-radius: 50%;
+        text-align: center;
+        padding-top: 5px;
+        box-sizing: border-box;
+        display: inline-block;
     }
 </style>
 
@@ -18,19 +21,18 @@ Current time is: {{ current_time }}<br/>
 {{ welcome_text }}
 <br/>
 
-
 {% if result %}
 Your result is: {{ result }}
     {% for circle in circles %}
-    <div class="circle"></div>
+        <div class="circle" style="background-color: {{ circle.color }}">
+            {{ circle.name }}
+        </div>
     {% endfor %}
-
 <br/>
 {% endif %}
 
 <form action="/contact-us" method="POST">
-    {% csrf_token %}   <!-- to comment -->
-
+    {% csrf_token %}
     <input type="text" name="number_a" placeholder="Type number A" /><br/>
     <input type="text" name="number_b" placeholder="Type number B" /><br/>
     <input type="submit" value="Calculate sum">

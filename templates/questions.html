@@ -1,5 +1,20 @@
+<style>
+    span {
+        {#font-size: 12px;#}
+    }
+</style>
+
 {% for question in questions %}
-    {{ question.question_text }} - {{ question.pub_date }}<br/>
+    {{ forloop.counter0 }}. {{ question.question_text }}
+    <span>(created: {{ question.pub_date }})</span>
+    <a href="/questions/{{ question.id }}">Go to answers —></a><br/>
 {% endfor %}
 
-Questions will be here
+<br/>
+Add new question:<br/>
+
+<form action="/questions" method="POST">
+    {% csrf_token %}
+    <input type="text" name="text" placeholder="Question text" /><br/>
+    <input type="submit" value="Add new question">
+</form>
