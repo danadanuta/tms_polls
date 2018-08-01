@@ -1,0 +1,7 @@
+[requires]
+python_version = "3.5"
+
+[packages]
+django-heroku = "*"
+gunicorn = "*"
+"psycopg2-binary" = "*"
