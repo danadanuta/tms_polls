@@ -59,6 +59,7 @@ def questions(request):
         q = Question(question_text=text, pub_date=datetime.utcnow())
         q.save()
 
+
     questions = Question.objects.all()
 
     return render(request, 'questions.html', context={'questions': questions})
