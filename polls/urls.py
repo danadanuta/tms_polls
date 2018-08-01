@@ -16,10 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from polls.views import index_view
-
+from polls.views import (
+    index_view,
+    contact_us_view,
+    polls,
+)
+b =7
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_view),   # передаем именно функцию а не ее переменную поэтому без скобок
+    path('contact-us', contact_us_view),
+    path('polls', polls)
 ]

@@ -1,0 +1,37 @@
+<style>
+    html, body {
+        font-family: Tahoma;
+        background-color: cornflowerblue;
+    }
+
+    .circle {
+        width: 30px;
+        height: 30px;
+        background-color: deeppink;
+        border-radius: 50%;
+    }
+</style>
+
+<h1>Here will be contact us form</h1>
+
+Current time is: {{ current_time }}<br/>
+{{ welcome_text }}
+<br/>
+
+
+{% if result %}
+Your result is: {{ result }}
+    {% for circle in circles %}
+    <div class="circle"></div>
+    {% endfor %}
+
+<br/>
+{% endif %}
+
+<form action="/contact-us" method="POST">
+    {% csrf_token %}   <!-- to comment -->
+
+    <input type="text" name="number_a" placeholder="Type number A" /><br/>
+    <input type="text" name="number_b" placeholder="Type number B" /><br/>
+    <input type="submit" value="Calculate sum">
+</form>
