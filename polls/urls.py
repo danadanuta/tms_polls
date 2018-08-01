@@ -1,5 +1,5 @@
-"""tms_polls URL Configuration
 
+"""tms_polls URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
 Examples:
@@ -19,13 +19,14 @@ from django.urls import path
 from polls.views import (
     index_view,
     contact_us_view,
-    polls,
+    questions,
+    question_detail,
 )
-b =7
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index_view),   # передаем именно функцию а не ее переменную поэтому без скобок
+    path('', index_view),
     path('contact-us', contact_us_view),
-    path('polls', polls)
+    path('questions', questions),
+    path('questions/<question_pk>', question_detail)
 ]
